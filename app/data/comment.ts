@@ -1,9 +1,6 @@
 "use server";
-
-import { symlink } from "fs";
+import { revalidatePath } from "next/cache";
 import prisma from "../lib/db";
-import { Album } from "@prisma/client";
-import { connect } from "http2";
 
 export const createComment = async ({
   content,
@@ -21,6 +18,7 @@ export const createComment = async ({
         },
       },
     });
+    revalidatePath(`/songs/${albumID}`);
     return newComment;
   } catch (error) {
     console.error("Error creating comment:", error);

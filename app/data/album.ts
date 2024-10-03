@@ -1,7 +1,5 @@
 "use server";
-
 import prisma from "../lib/db";
-
 const getRandomLength = () => {
   const min = 3;
   const max = 7;
