@@ -2,32 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 30, 30, 30; /* Slightly different than start to show gradient */
+html,body:root {
+  height: 100%; 
+  background-color: #121212; 
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 255, 255, 255;
-    --background-end-rgb: 214, 219, 220;
-  }
-}
 
-body {
-  color: rgb(var(--foreground-rgb)); 
-  height: 100vh;
-  background: linear-gradient(
-      to bottom,
-      rgb(var(--background-start-rgb)),
-      rgb(var(--background-end-rgb))
-    );
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}

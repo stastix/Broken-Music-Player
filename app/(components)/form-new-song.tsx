@@ -1,10 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import { FormData } from "../types/song";
 import { useRouter } from "next/navigation";
 import { createAlbum } from "../data/album";
 
 const FormNewSong = () => {
+  interface FormData {
+    title: string;
+    songs: string[];
+    image: File | null;
+  }
   const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
     title: "",
@@ -103,7 +107,7 @@ const FormNewSong = () => {
           <button
             type="button"
             onClick={() => removeSong(index)}
-            className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded-md focus:outline-none focus:ring focus:border-red-300"
+            className="bg-red-800 hover:bg-red-600 text-white font-bold py-1 px-2 rounded-md focus:outline-none focus:ring focus:border-red-300"
           >
             Remove
           </button>
@@ -112,14 +116,13 @@ const FormNewSong = () => {
       <button
         type="button"
         onClick={addSong}
-        className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring focus:border-green-300 w-full mb-4"
+        className="bg-blue-950 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring focus:border-blue-300 w-full mb-4"
       >
         Add Song
       </button>
-
       <button
         type="submit"
-        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring focus:border-blue-300 w-full disabled:bg-gray-400"
+        className="bg-blue-950 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring focus:border-blue-300 w-full disabled:bg-gray-400"
       >
         Submit
       </button>
