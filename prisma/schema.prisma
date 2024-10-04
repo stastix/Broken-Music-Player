@@ -39,13 +39,23 @@ model Session {
 }
 
 model Album {
-  albumId   String    @id @default(auto()) @map("_id") @db.ObjectId
-  title     String
-  songs     Song[]
-  createdAt DateTime  @default(now())
-  userId    String?   @db.ObjectId
-  postId    String?   @db.ObjectId
-  Comment   Comment[]
+  albumId       String    @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  artist        Artist?   @relation(fields: [artistAlbumId], references: [albumId])
+  image         String?
+  songs         Song[]
+  createdAt     DateTime  @default(now())
+  userId        String?   @db.ObjectId
+  postId        String?   @db.ObjectId
+  Comment       Comment[]
+  artistAlbumId String?   @db.ObjectId
+}
+
+model Artist {
+  albumId String  @id @default(auto()) @map("_id") @db.ObjectId
+  Album   Album[]
+  name    String
+  image   String?
 }
 
 model Song {

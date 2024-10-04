@@ -1,5 +1,4 @@
-"use client";
-import { Album, Prisma } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import { useEffect, useState } from "react";
 import { getAlbums } from "./albums.server";
 
@@ -16,5 +15,5 @@ export const useAlbums = () => {
       .catch((error) => console.error(error));
   };
 
-  return { Albums, loading};
+  return { Albums, loading };
 };

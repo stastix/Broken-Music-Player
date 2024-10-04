@@ -3,13 +3,13 @@ import prisma from "../lib/db";
 import FormComments from "./form-comments";
 
 const Comments = async ({ albumId }: { albumId: string }) => {
+  "use server";
   const comments = await prisma.comment.findMany({
     where: { albumAlbumId: albumId },
   });
 
   return (
     <div className="mt-8">
-      <h2 className="mb-4">Comments</h2>
       <div className="m-3">
         <FormComments albumId={albumId} />
       </div>
