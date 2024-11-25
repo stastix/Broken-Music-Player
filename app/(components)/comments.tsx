@@ -1,9 +1,9 @@
+"use server";
 import React from "react";
 import prisma from "../lib/db";
 import FormComments from "./form-comments";
 
 const Comments = async ({ albumId }: { albumId: string }) => {
-  "use server";
   const comments = await prisma.comment.findMany({
     where: { albumAlbumId: albumId },
   });
