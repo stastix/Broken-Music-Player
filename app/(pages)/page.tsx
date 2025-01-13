@@ -1,5 +1,4 @@
-import FormNewSong from "./(components)/form-new-song";
-import { getCurrentUser } from "./lib/session";
+import FormNewSong from "../(components)/form-new-song";
 
 export default async function Home() {
   return (

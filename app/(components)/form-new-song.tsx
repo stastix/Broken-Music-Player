@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createAlbum } from "../data/album";
+import { createAlbum } from "../server/albums.server";
 
 const FormNewSong = () => {
   interface FormData {

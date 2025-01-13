@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Broken Music Player 🎵
+
+## This is a **music player** project built using [Next.js](https://nextjs.org/) and bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Overview
+
+The goal of this project is to develop a fully functional music player with the following key features:
+
+1. Play, pause, and skip tracks.
+2. Display playlists and individual song details.
+3. Control playback (seek and volume adjustment).
+4. Responsive design to support different screen sizes.
+
+Currently, some features are incomplete. This README documents the current status and provides guidelines for further development.
+
+This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+
+---
+
+## Features
+
+### Implemented:
+
+- **UI Layout**: The basic structure of the player interface is complete.
+- **Playlist Display**: Songs and playlists can be loaded and displayed.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Follow the steps below to run the project locally:
 
+### Prerequisites
+
+Ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/broken-music-player.git
+   cd broken-music-player
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+### Running the Development Server
+
+To start the development server, run:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building the Project
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To build the project for production, run:
+```bash
+npm run build
+# or
+yarn build
+```
+The output will be in the `out` directory. You can start the production server with:
+```bash
+npm start
+# or
+yarn start
+```
 
-## Learn More
+### Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Contributions are welcome! Please follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License.

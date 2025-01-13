@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useComments } from "../custom-hooks/comments-hook";
+import Loading from "./Loading";
 
 const FormComments = ({ albumId }: { albumId: string }) => {
   const {
@@ -11,7 +12,9 @@ const FormComments = ({ albumId }: { albumId: string }) => {
     handleSubmit,
     enableComment,
     handleCancel,
+    loading,
   } = useComments({ albumId });
+  if (loading) return <Loading />;
   return (
     <div className="mt-4 flex flex-col">
       <input

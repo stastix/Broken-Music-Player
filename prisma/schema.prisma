@@ -4,7 +4,8 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 model Account {
@@ -49,6 +50,8 @@ model Album {
   postId        String?   @db.ObjectId
   Comment       Comment[]
   artistAlbumId String?   @db.ObjectId
+  Playlist      Playlist? @relation(fields: [playlistId], references: [Id])
+  playlistId    String?   @db.ObjectId
 }
 
 model Artist {
@@ -59,11 +62,22 @@ model Artist {
 }
 
 model Song {
-  songId  String @id @default(auto()) @map("_id") @db.ObjectId
-  title   String
-  album   Album  @relation(fields: [albumId], references: [albumId])
-  albumId String @db.ObjectId
-  length  Int
+  songId     String    @id @default(auto()) @map("_id") @db.ObjectId
+  title      String
+  album      Album     @relation(fields: [albumId], references: [albumId])
+  albumId    String    @db.ObjectId
+  duration   Int
+  Playlist   Playlist? @relation(fields: [playlistId], references: [Id])
+  playlistId String?   @db.ObjectId
+  User       User?     @relation(fields: [userId], references: [id])
+  userId     String?
+}
+
+model Playlist {
+  Id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId Int     @map(name: "user_id")
+  album  Album[]
+  songs  Song[]
 }
 
 model VerificationRequest {
@@ -83,4 +97,19 @@ model Comment {
   album        Album   @relation(fields: [albumAlbumId], references: [albumId])
   userId       String? @db.ObjectId
   albumAlbumId String  @db.ObjectId
+}
+
+model User {
+  id    String  @id @default(auto()) @map("_id") @db.ObjectId
+  email String  @unique
+  name  String?
+  role  Role    @default(USER)
+  songs Song[]
+  // profile Profile?
+}
+
+enum Role {
+  USER
+  ADMIN
+  ARTIST
 }

@@ -9,7 +9,7 @@ const Comments = async ({ albumId }: { albumId: string }) => {
   });
 
   return (
-    <div className="mt-8">
+    <>
       <div className="m-3">
         <FormComments albumId={albumId} />
       </div>
@@ -28,7 +28,7 @@ const Comments = async ({ albumId }: { albumId: string }) => {
           <li className="text-gray-500">No comments yet</li>
         )}
       </ul>
-    </div>
+    </>
   );
 };
 

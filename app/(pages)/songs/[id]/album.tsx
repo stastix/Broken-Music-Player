@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import albumImage from "../../../public/Hot-fuss.png";
-import { fetchSingleAlbum } from "./sing-album-server";
+import albumImage from "../../../../public/Hot-fuss.png";
+import { fetchSingleAlbum } from "../../../server/sing-album-server";
 import theKillers from "@/public/ab6761610000e5eb207b21f3ed0ee96adce3166a.jpeg";
 import PlayButton from "@/app/(components)/playButton";
+import Songs from "../../../(components)/Songs";
 
 const AlbumDetails = async ({ params }: { params: any }) => {
   const album = await fetchSingleAlbum(params.id);
@@ -37,21 +38,14 @@ const AlbumDetails = async ({ params }: { params: any }) => {
       </div>
       <div className="max-w-4xl mx-auto py-8">
         <PlayButton />
-        <h4 className="text-clip font-semibold mb-4 mt-10">Songs</h4>
-        <ul className="list-disc list-inside mb-8">
-          {album?.songs.map((song) => (
-            <li
-              key={song.songId}
-              className="text-lg text-slate-300 mb-2 flex items-center"
-            >
-              <i
-                className="fas fa-play mr-2 text-slate-500 cursor-pointer"
-                // onClick={playSong(song.songId)}
-              ></i>
-              {song.title}
-            </li>
-          ))}
+        <ul className="text-lg mb-2 mt-12 flex items-center justify-between">
+          <li className="mr-4">#</li>
+          <li>Title</li>
+          <li className="ml-auto mr-4">
+            <i className="fa-solid fa-clock"></i>
+          </li>
         </ul>
+        <Songs songs={album?.songs} />
       </div>
     </>
   );

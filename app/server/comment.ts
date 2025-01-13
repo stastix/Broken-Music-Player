@@ -9,19 +9,16 @@ export const createComment = async ({
   content: string;
   albumID: string;
 }) => {
-  try {
-    const newComment = await prisma.comment.create({
+  const newComment = await prisma.comment
+    .create({
       data: {
         text: content,
         album: {
           connect: { albumId: albumID },
         },
       },
-    });
-    revalidatePath(`/songs/${albumID}`);
-    return newComment;
-  } catch (error) {
-    console.error("Error creating comment:", error);
-    throw error;
-  }
+    })
+    .catch((error) => console.error(error));
+  revalidatePath(`/songs/${albumID}`);
+  return newComment;
 };
