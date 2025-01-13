@@ -41,6 +41,7 @@ Ensure you have the following installed:
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/your-username/broken-music-player.git
    cd broken-music-player
@@ -56,22 +57,27 @@ Ensure you have the following installed:
 ### Running the Development Server
 
 To start the development server, run:
+
 ```bash
 npm run dev
 # or
 yarn dev
 ```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ### Building the Project
 
 To build the project for production, run:
+
 ```bash
 npm run build
 # or
 yarn build
 ```
+
 The output will be in the `out` directory. You can start the production server with:
+
 ```bash
 npm start
 # or
