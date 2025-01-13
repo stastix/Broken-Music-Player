@@ -16,16 +16,6 @@ Currently, some features are incomplete. This README documents the current statu
 This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
 
 ---
-
-## Features
-
-### Implemented:
-
-- **UI Layout**: The basic structure of the player interface is complete.
-- **Playlist Display**: Songs and playlists can be loaded and displayed.
-
----
-
 ## Getting Started
 
 Follow the steps below to run the project locally:
@@ -37,6 +27,7 @@ Ensure you have the following installed:
 - [Node.js](https://nodejs.org/) (v16 or higher recommended)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Docker](https://www.docker.com/)
 
 ### Installation
 
@@ -83,6 +74,22 @@ npm start
 # or
 yarn start
 ```
+
+### Running with Docker
+
+To run the project using Docker, follow these steps:
+
+1. Build the Docker image:
+   ```bash
+   docker build -t broken-music-player .
+   ```
+
+2. Run the Docker container:
+   ```bash
+   docker run -p 3000:3000 broken-music-player
+   ```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ### Contributing
 
